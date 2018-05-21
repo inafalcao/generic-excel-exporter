@@ -16,10 +16,20 @@ public class TestReflection {
     @ExcelColumn(name = "Field three!")
     private boolean fieldThree;
 
+    @ExcelColumn(name = "Recursive!")
+    private TestRecursionLevelOne fieldFour;
+
     public TestReflection(String fieldOne, int fieldTwo, boolean fieldThree) {
         this.fieldOne = fieldOne;
         this.fieldTwo = fieldTwo;
         this.fieldThree = fieldThree;
+    }
+
+    public TestReflection(String fieldOne, int fieldTwo, boolean fieldThree, TestRecursionLevelOne fieldFour) {
+        this.fieldOne = fieldOne;
+        this.fieldTwo = fieldTwo;
+        this.fieldThree = fieldThree;
+        this.fieldFour = fieldFour;
     }
 
     public String getFieldOne() {
