@@ -22,17 +22,17 @@ public class GenericExcelExporter {
 
         Sheet sheet = workbook.createSheet("what name");
 
-        // Header + style
-        Row header = headerRow(sheet, workbook);
-
-        // Body + style
+        // Build Header + body + adjust column to fit the contents.
+        headerRow(sheet, workbook);
         body(sheet, workbook);
+        StyleHandler.autoziseColumns(sheet, columnHandler.columnCount());
 
         // Return file name or stream?
         try (OutputStream fileOut = new FileOutputStream("workbook.xls")) {
             workbook.write(fileOut);
         } catch(IOException ex) {
-
+            // todo
+            ex.printStackTrace();
         }
 
     }

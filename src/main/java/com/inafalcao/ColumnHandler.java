@@ -64,14 +64,14 @@ public class ColumnHandler {
     /**
      * @return The count of @ExcelColumn annotated fields..
      */
-    public long columnCount() {
+    public int columnCount() {
         // If list is null or empty, xls file is always gonna be empty.
         if(!hasList()) return 0;
 
         // todo: what about recursion in fields?
         Field[] fields = clazz.getDeclaredFields();
 
-        return Arrays.stream(fields).filter(field -> field.isAnnotationPresent(ExcelColumn.class)).count();
+        return (int) Arrays.stream(fields).filter(field -> field.isAnnotationPresent(ExcelColumn.class)).count();
     }
 
     private boolean hasList() {

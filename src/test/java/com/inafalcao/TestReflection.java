@@ -7,7 +7,7 @@ public class TestReflection {
      * Ex: @ExcelColumn(name = "Some name")
      */
 
-    @ExcelColumn(name = "Field one!")
+    @ExcelColumn(name = "Field one as big as I want!")
     private String fieldOne;
 
     @ExcelColumn(name = "Field two!")
